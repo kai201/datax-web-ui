@@ -9,7 +9,7 @@
         >全选</el-checkbox>
         <div style="margin: 15px 0;" />
         <el-checkbox-group v-model="readerForm.lcolumns" @change="lHandleCheckedChange">
-          <el-checkbox v-for="c in fromColumnsList" :key="c" :label="c">{{ c }}</el-checkbox>
+          <el-checkbox v-for="c in fromColumnsList" :key="c" :label="c">{{ c + size(readerForm.lcolumns,c) }}</el-checkbox>
         </el-checkbox-group>
       </el-form-item>
       <el-form-item label="目标字段">
@@ -20,7 +20,7 @@
         >全选</el-checkbox>
         <div style="margin: 20px 0;" />
         <el-checkbox-group v-model="readerForm.rcolumns" @change="rHandleCheckedChange">
-          <el-checkbox v-for="c in toColumnsList" :key="c" :label="c">{{ c }}</el-checkbox>
+          <el-checkbox v-for="c in toColumnsList" :key="c" :label="c">{{ c + size(readerForm.rcolumns,c) }}</el-checkbox>
         </el-checkbox-group>
       </el-form-item>
     </el-form>
@@ -47,6 +47,9 @@ export default {
   mounted() {
   },
   methods: {
+    size(arrs, v) {
+      return arrs.indexOf(v) < 0 ? '' : `（${arrs.indexOf(v)}）`
+    },
     lHandleCheckAllChange(val) {
       this.readerForm.lcolumns = val ? this.fromColumnsList : []
       this.readerForm.isIndeterminate = false
