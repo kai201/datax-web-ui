@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     size(arrs, v) {
-      return arrs.indexOf(v) < 0 ? '' : `（${arrs.indexOf(v)}）`
+      return arrs.indexOf(v) < 0 ? '' : `（${arrs.indexOf(v) + 1}）`
     },
     lHandleCheckAllChange(val) {
       this.readerForm.lcolumns = val ? this.fromColumnsList : []

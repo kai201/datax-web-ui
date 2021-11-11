@@ -11,8 +11,8 @@ export default {
   methods: {
     sendColumns(fromColumnsList, toColumnsList) {
       this.$refs.mapper.fromColumnsList = fromColumnsList
-      this.$refs.mapper.fromColumnsList = fromColumnsList
-      this.$refs.mapper.readerForm.lcolumns = toColumnsList
+      this.$refs.mapper.toColumnsList = toColumnsList
+      this.$refs.mapper.readerForm.lcolumns = fromColumnsList
     },
     getLColumns() {
       return this.$refs.mapper.getLColumns()
